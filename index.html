@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen's Protocol: React Component Framework Simulator</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #07040a; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        h1 { color: #38bdf8; margin-bottom: 30px; font-size: 26px; }
+        .grid-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        /* Component Shell System Box Style */
+        .crypto-frame-box { background: #130f26; padding: 25px; border-radius: 16px; border: 1px solid rgba(139, 92, 246, 0.3); width: 180px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .crypto-name { font-size: 20px; font-weight: bold; color: #ec4899; margin-bottom: 10px; }
+        .crypto-price { font-size: 18px; color: #4ade80; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Framework Component Architecture</h1>
+    
+    <!-- React Root Entry Area where components will automatically render -->
+    <div class="grid-container" id="app-root"></div>
+
+<script>
+    // 1. Data Structure State Array (Hamara Main State Database Object)
+    const cryptoMarketState = [
+        { title: "Bitcoin", price: "$68,420", arrow: "🪙" },
+        { title: "Ethereum", price: "$2,650", arrow: "🔷" },
+        { title: "Solana", price: "$175", arrow: "⚡" }
+    ];
+
+    // 2. REUSABLE COMPONENT FUNCTION (The Frame Structure Machine)
+    // Yeh function bilkul React.js ke Component ki tarah functional dynamic shell render karega
+    function CryptoCardComponent(props) {
+        return `
+            <div class="crypto-frame-box">
+                <div class="crypto-name">${props.arrow} ${props.title}</div>
+                <div class="crypto-price">${props.price} USD</div>
+            </div>
+        `;
+    }
+
+    // 3. FRAMEWORK ENGINE RENDER RUNNER
+    const rootElement = document.getElementById('app-root');
+    let htmlOutputAccumulator = '';
+
+    // Loop through global dataset status component factory
+    cryptoMarketState.forEach(item => {
+        htmlOutputAccumulator += CryptoCardComponent(item);
+    });
+
+    // Instant layout generation onto structural app container layout
+    rootElement.innerHTML = htmlOutputAccumulator;
+    console.log("Framework execution simulation injection completed successfully.");
+</script>
+</body>
+</html>
